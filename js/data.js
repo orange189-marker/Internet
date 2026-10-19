@@ -1,5 +1,5 @@
 const MILESTONES = [
-  { year: 1957, era: "foundations", title: "Sputnik launches",
+  { year: 1957, era: "foundations", title: "Sputnik launches", image: "images/sputnik.svg",
     short: "The Soviet satellite sparks a US push for scientific leadership.",
     body: "On 4 October 1957 the USSR launched Sputnik 1. Alarmed, the United States responded by creating new agencies to fund advanced research, setting the stage for the network that followed." },
   { year: 1958, era: "foundations", title: "ARPA is founded",

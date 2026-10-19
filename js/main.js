@@ -48,6 +48,7 @@
     li.dataset.era = m.era;
     li.innerHTML = `
       <button class="milestone-card" data-idx="${idx}">
+        ${m.image ? `<img class="milestone-img" src="${m.image}" alt="" width="72" height="72">` : ""}
         <span class="year">${m.year}</span>
         <span class="tag tag-${m.era}">${m.era}</span>
         <strong>${m.title}</strong>
