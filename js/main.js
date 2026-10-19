@@ -1,6 +1,11 @@
 (() => {
   const $ = (sel, root = document) => root.querySelector(sel);
 
+  // Render every "ARPANET" as a glowing CRT-terminal word, one span per letter for the hover wave
+  const crtWord = () => `<span class="arpanet">${[..."ARPANET"].map((c, i) => `<i style="--i:${i}">${c}</i>`).join("")}</span>`;
+  const arpanet = (text) => text.replace(/ARPANET/gi, crtWord);
+  document.querySelectorAll(".arpanet").forEach((el) => { el.outerHTML = crtWord(); });
+
   // Mobile nav
   const toggle = $(".nav-toggle");
   const links = $("#nav-links");
@@ -51,7 +56,7 @@
       const divider = document.createElement("li");
       divider.className = "era-divider reveal";
       divider.dataset.era = m.era;
-      divider.innerHTML = `<span>${ERAS[m.era]} <small>${years[0]}&ndash;${years[years.length - 1]}</small></span>`;
+      divider.innerHTML = `<span>${arpanet(ERAS[m.era])} <small>${years[0]}&ndash;${years[years.length - 1]}</small></span>`;
       list.appendChild(divider);
     }
     const li = document.createElement("li");
@@ -61,9 +66,9 @@
       <button class="milestone-card" data-idx="${idx}" data-year="${m.year}">
         ${m.image ? `<img class="milestone-img" src="${m.image}" alt="" width="86" height="86">` : ""}
         <span class="year">${m.year}</span>
-        <span class="tag">${m.era}</span>
-        <strong>${m.title}</strong>
-        <span class="short">${m.short}</span>
+        <span class="tag">${arpanet(m.era)}</span>
+        <strong>${arpanet(m.title)}</strong>
+        <span class="short">${arpanet(m.short)}</span>
         <span class="more">Read more &rarr;</span>
       </button>`;
     list.appendChild(li);
@@ -101,8 +106,8 @@
     if (!btn) return;
     const m = MILESTONES[btn.dataset.idx];
     $(".detail-year", dialog).textContent = m.year;
-    $(".detail-title", dialog).textContent = m.title;
-    $(".detail-body", dialog).textContent = m.body;
+    $(".detail-title", dialog).innerHTML = arpanet(m.title);
+    $(".detail-body", dialog).innerHTML = arpanet(m.body);
     dialog.showModal();
   });
   dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
@@ -136,7 +141,7 @@
       <div class="avatar" aria-hidden="true">${initials}</div>
       <h3>${p.name}</h3>
       <p class="role">${p.role}</p>
-      <p>${p.text}</p>`;
+      <p>${arpanet(p.text)}</p>`;
     cards.appendChild(el);
   });
 
@@ -155,7 +160,7 @@
     const item = QUIZ[current];
     box.innerHTML = `
       <p class="quiz-progress">Question ${current + 1} of ${QUIZ.length}</p>
-      <h3>${item.q}</h3>
+      <h3>${arpanet(item.q)}</h3>
       <div class="options">${item.options.map((o, i) => `<button class="option" data-i="${i}"><span class="letter">${"ABCD"[i]}</span><span>${o}</span></button>`).join("")}</div>
       <p class="feedback" aria-live="polite"></p>`;
     box.querySelectorAll(".option").forEach((btn) => {

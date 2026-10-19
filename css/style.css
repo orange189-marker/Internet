@@ -219,6 +219,47 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; letter-spacing: -0.
 .milestone-card:hover .more, .milestone-card:focus-visible .more { opacity: 1; transform: none; }
 .tag { justify-self: start; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; color: var(--era); }
 
+/* "ARPANET" rendered as a glowing green-phosphor CRT word */
+.arpanet {
+  --phosphor: #7cf0c5;
+  display: inline-block; white-space: nowrap; vertical-align: baseline;
+  padding: 0 .32em; margin: 0 .05em; border-radius: 5px;
+  font: 400 1.3em/1 "VT323", "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: none;
+  color: var(--phosphor);
+  background: #050b14 repeating-linear-gradient(0deg, rgba(124, 240, 197, .07) 0 1px, transparent 1px 3px);
+  border: 1px solid rgba(124, 240, 197, .35);
+  text-shadow: 0 0 3px rgba(124, 240, 197, .9), 0 0 10px rgba(124, 240, 197, .55);
+  box-shadow: inset 0 0 10px rgba(124, 240, 197, .18), 0 0 12px -4px rgba(124, 240, 197, .5);
+  animation: crt-flicker 5s infinite;
+}
+.arpanet i { font-style: normal; display: inline-block; }
+.arpanet:hover i, .milestone-card:hover .arpanet i, .filter:hover .arpanet i, .era-divider:hover .arpanet i {
+  animation: crt-wave .7s calc(var(--i) * 60ms) both;
+}
+@keyframes crt-wave {
+  0% { opacity: .15; transform: translateY(-3px); }
+  45% { opacity: 1; color: #fff; text-shadow: 0 0 6px #fff, 0 0 18px var(--phosphor); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes crt-flicker { 0%, 95%, 100% { opacity: 1; } 96% { opacity: .7; } 97% { opacity: 1; } 98% { opacity: .85; } }
+/* The ARPANET era heading becomes a whole CRT screen, with a blinking cursor */
+.era-divider[data-era="arpanet"] > span {
+  color: #9fb8ad;
+  background: #050b14 repeating-linear-gradient(0deg, rgba(124, 240, 197, .07) 0 1px, transparent 1px 3px);
+  box-shadow: 0 0 28px -6px var(--era), inset 0 0 14px rgba(124, 240, 197, .2);
+}
+.era-divider[data-era="arpanet"] small { color: #9fb8ad; }
+.era-divider .arpanet { font-size: 1.6em; padding: 0; border: 0; background: none; box-shadow: none; }
+.era-divider .arpanet::after { content: "_"; animation: blink 1s steps(1) infinite; }
+/* Lighter treatment inside small labels and buttons */
+.tag .arpanet, .filter .arpanet { padding: 0; margin: 0; border: 0; background: none; box-shadow: none; font-size: 1.45em; }
+.tag .arpanet { font-size: 1.6em; letter-spacing: .12em; }
+.filter.active .arpanet { color: var(--on-accent); text-shadow: none; animation: none; }
+/* On light backgrounds the bare (no screen behind it) word needs darker phosphor */
+@media (prefers-color-scheme: light) {
+  .tag .arpanet, .filter:not(.active) .arpanet { color: #0b7a5f; text-shadow: 0 0 6px rgba(15, 143, 132, .35); }
+}
+
 /* Pioneers */
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
@@ -315,7 +356,7 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; letter-spacing: -0.
   html { scroll-behavior: auto; }
   .wire i, .terminal pre::after { animation: none; }
   .milestone.reveal, .milestone.alt.reveal { transform: none; }
-  .cta-arrow, .option.correct, .option.wrong { animation: none; }
+  .cta-arrow, .option.correct, .option.wrong, .arpanet, .arpanet i, .era-divider .arpanet::after { animation: none !important; }
 }
 
 /* Timeline cards slide in from their side of the spine */
