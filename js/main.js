@@ -108,9 +108,15 @@
   dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
 
   document.querySelectorAll(".filter").forEach((btn) => {
+    const era = btn.dataset.era;
+    $(".count", btn).textContent = era === "all" ? MILESTONES.length : MILESTONES.filter((m) => m.era === era).length;
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".filter").forEach((b) => b.classList.remove("active"));
+      document.querySelectorAll(".filter").forEach((b) => {
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed", "false");
+      });
       btn.classList.add("active");
+      btn.setAttribute("aria-pressed", "true");
       const era = btn.dataset.era;
       list.querySelectorAll("[data-era]").forEach((li) => {
         li.hidden = era !== "all" && li.dataset.era !== era;
@@ -142,7 +148,7 @@
       box.innerHTML = `
         <p class="quiz-progress">Finished</p>
         <h3>You scored ${score} / ${QUIZ.length}</h3>
-        <button class="cta restart">Try again</button>`;
+        <button class="cta restart">Try again <span class="cta-arrow" aria-hidden="true">&#8635;</span></button>`;
       $(".restart", box).addEventListener("click", () => { current = 0; score = 0; renderQuestion(); });
       return;
     }
@@ -150,7 +156,7 @@
     box.innerHTML = `
       <p class="quiz-progress">Question ${current + 1} of ${QUIZ.length}</p>
       <h3>${item.q}</h3>
-      <div class="options">${item.options.map((o, i) => `<button class="option" data-i="${i}">${o}</button>`).join("")}</div>
+      <div class="options">${item.options.map((o, i) => `<button class="option" data-i="${i}"><span class="letter">${"ABCD"[i]}</span><span>${o}</span></button>`).join("")}</div>
       <p class="feedback" aria-live="polite"></p>`;
     box.querySelectorAll(".option").forEach((btn) => {
       btn.addEventListener("click", () => {

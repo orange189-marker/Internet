@@ -14,7 +14,7 @@
   <header class="site-header">
     <nav class="nav">
       <a class="brand" href="#top">&lt;net/history&gt;</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span><span></span></button>
       <ul id="nav-links" class="nav-links">
         <li><a href="#timeline">Timeline</a></li>
         <li><a href="#pioneers">Pioneers</a></li>
@@ -37,18 +37,21 @@
         <div class="terminal-bar"><span></span><span></span><span></span><em>UCLA &rarr; SRI &middot; 29 Oct 1969, 22:30</em></div>
         <pre id="typed" aria-live="polite"></pre>
       </div>
-      <a class="cta" href="#timeline">Explore the timeline &darr;</a>
+      <div class="hero-actions">
+        <a class="cta" href="#timeline">Explore the timeline <span class="cta-arrow" aria-hidden="true">&darr;</span></a>
+        <a class="btn-ghost" href="#quiz">Take the quiz</a>
+      </div>
     </section>
 
     <section id="timeline" class="section">
       <h2>Timeline</h2>
       <p class="section-intro">Filter by era, or click any milestone to read more.</p>
       <div class="filters" role="group" aria-label="Filter timeline by era">
-        <button class="filter active" data-era="all">All</button>
-        <button class="filter" data-era="foundations">Foundations</button>
-        <button class="filter" data-era="arpanet">ARPANET</button>
-        <button class="filter" data-era="protocols">Protocols</button>
-        <button class="filter" data-era="web">The Web</button>
+        <button class="filter active" data-era="all" aria-pressed="true"><i class="dot"></i>All <span class="count"></span></button>
+        <button class="filter" data-era="foundations" aria-pressed="false"><i class="dot"></i>Foundations <span class="count"></span></button>
+        <button class="filter" data-era="arpanet" aria-pressed="false"><i class="dot"></i>ARPANET <span class="count"></span></button>
+        <button class="filter" data-era="protocols" aria-pressed="false"><i class="dot"></i>Protocols <span class="count"></span></button>
+        <button class="filter" data-era="web" aria-pressed="false"><i class="dot"></i>The Web <span class="count"></span></button>
       </div>
       <div class="timeline-wrap">
         <div class="timeline-track" aria-hidden="true"></div>
