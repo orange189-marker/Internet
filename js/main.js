@@ -42,17 +42,29 @@
   // Timeline
   const list = $("#timeline-list");
   const dialog = $("#detail");
+  const ERAS = { foundations: "Foundations", arpanet: "ARPANET", protocols: "Protocols", web: "The Web" };
+  let lastEra = null;
   MILESTONES.forEach((m, idx) => {
+    if (m.era !== lastEra) {
+      lastEra = m.era;
+      const years = MILESTONES.filter((x) => x.era === m.era).map((x) => x.year);
+      const divider = document.createElement("li");
+      divider.className = "era-divider reveal";
+      divider.dataset.era = m.era;
+      divider.innerHTML = `<span>${ERAS[m.era]} <small>${years[0]}&ndash;${years[years.length - 1]}</small></span>`;
+      list.appendChild(divider);
+    }
     const li = document.createElement("li");
     li.className = "milestone reveal";
     li.dataset.era = m.era;
     li.innerHTML = `
-      <button class="milestone-card" data-idx="${idx}">
-        ${m.image ? `<img class="milestone-img" src="${m.image}" alt="" width="72" height="72">` : ""}
+      <button class="milestone-card" data-idx="${idx}" data-year="${m.year}">
+        ${m.image ? `<img class="milestone-img" src="${m.image}" alt="" width="86" height="86">` : ""}
         <span class="year">${m.year}</span>
-        <span class="tag tag-${m.era}">${m.era}</span>
+        <span class="tag">${m.era}</span>
         <strong>${m.title}</strong>
         <span class="short">${m.short}</span>
+        <span class="more">Read more &rarr;</span>
       </button>`;
     list.appendChild(li);
   });
@@ -62,6 +74,27 @@
     [...list.querySelectorAll(".milestone:not([hidden])")].forEach((li, i) => li.classList.toggle("alt", i % 2 === 1));
   };
   alternate();
+
+  // Scroll-linked progress line that lights up each node as it passes
+  const wrap = $(".timeline-wrap");
+  const progress = $(".timeline-progress");
+  const updateProgress = () => {
+    const box = wrap.getBoundingClientRect();
+    const mark = window.innerHeight * 0.6;
+    progress.style.height = `${Math.max(0, Math.min(box.height, mark - box.top))}px`;
+    progress.style.backgroundSize = `100% ${box.height}px`;
+    list.querySelectorAll(".milestone:not([hidden])").forEach((li) => {
+      li.classList.toggle("lit", li.getBoundingClientRect().top + 42 < mark);
+    });
+  };
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { ticking = false; updateProgress(); });
+  }, { passive: true });
+  window.addEventListener("resize", updateProgress);
+  updateProgress();
 
   list.addEventListener("click", (e) => {
     const btn = e.target.closest(".milestone-card");
@@ -79,10 +112,11 @@
       document.querySelectorAll(".filter").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       const era = btn.dataset.era;
-      list.querySelectorAll(".milestone").forEach((li) => {
+      list.querySelectorAll("[data-era]").forEach((li) => {
         li.hidden = era !== "all" && li.dataset.era !== era;
       });
       alternate();
+      updateProgress();
     });
   });
 
