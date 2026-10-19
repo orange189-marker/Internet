@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How the Internet Was Born</title>
+  <meta name="description" content="A timeline of the creation of the Internet, from ARPA and packet switching to TCP/IP and the World Wide Web.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#top">&lt;net/history&gt;</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#pioneers">Pioneers</a></li>
+        <li><a href="#concepts">Key Ideas</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">1958 &mdash; 1995</p>
+      <h1>How the Internet<br>Was Born</h1>
+      <p class="lede">
+        It began as a research project to share scarce computers between universities.
+        Over four decades, a handful of ideas&mdash;packet switching, open protocols and
+        hypertext&mdash;grew into a network that connects billions of people.
+      </p>
+      <div class="terminal" aria-label="Recreation of the first ARPANET message">
+        <div class="terminal-bar"><span></span><span></span><span></span><em>UCLA &rarr; SRI &middot; 29 Oct 1969, 22:30</em></div>
+        <pre id="typed" aria-live="polite"></pre>
+      </div>
+      <a class="cta" href="#timeline">Explore the timeline &darr;</a>
+    </section>
+
+    <section id="timeline" class="section">
+      <h2>Timeline</h2>
+      <p class="section-intro">Filter by era, or click any milestone to read more.</p>
+      <div class="filters" role="group" aria-label="Filter timeline by era">
+        <button class="filter active" data-era="all">All</button>
+        <button class="filter" data-era="foundations">Foundations</button>
+        <button class="filter" data-era="arpanet">ARPANET</button>
+        <button class="filter" data-era="protocols">Protocols</button>
+        <button class="filter" data-era="web">The Web</button>
+      </div>
+      <ol class="timeline" id="timeline-list"></ol>
+    </section>
+
+    <section id="pioneers" class="section">
+      <h2>Pioneers</h2>
+      <p class="section-intro">No single person invented the Internet. These are some of the people whose work made it possible.</p>
+      <div class="cards" id="pioneer-cards"></div>
+    </section>
+
+    <section id="concepts" class="section">
+      <h2>Key Ideas</h2>
+      <div class="concepts">
+        <article class="concept">
+          <h3>Packet switching</h3>
+          <p>Instead of reserving a whole line for one call, messages are chopped into small packets that travel independently and are reassembled at the destination. The network stays useful even when parts of it fail.</p>
+          <div class="packet-demo" aria-hidden="true">
+            <span class="node">A</span>
+            <div class="wire"><i></i><i></i><i></i><i></i></div>
+            <span class="node">B</span>
+          </div>
+        </article>
+        <article class="concept">
+          <h3>TCP/IP</h3>
+          <p>IP gives every machine an address and moves packets between networks. TCP sits on top, checking that every packet arrives, in order, and asking for any lost ones again. Together they let any network talk to any other.</p>
+        </article>
+        <article class="concept">
+          <h3>Domain Name System</h3>
+          <p>People remember names, computers use numbers. DNS, introduced in 1983, translates names like <code>example.com</code> into IP addresses through a distributed, hierarchical directory.</p>
+        </article>
+        <article class="concept">
+          <h3>Hypertext &amp; the Web</h3>
+          <p>The World Wide Web is an application that runs on the Internet. It combines URLs, the HTTP protocol and HTML pages so that any document can link to any other with a single click.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quiz" class="section">
+      <h2>Test Yourself</h2>
+      <div class="quiz" id="quiz-box"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built as an educational overview. Dates follow widely cited histories from the Internet Society, CERN and the Computer History Museum.</p>
+  </footer>
+
+  <dialog id="detail" class="detail">
+    <form method="dialog"><button class="close" aria-label="Close">&times;</button></form>
+    <p class="detail-year"></p>
+    <h3 class="detail-title"></h3>
+    <p class="detail-body"></p>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
