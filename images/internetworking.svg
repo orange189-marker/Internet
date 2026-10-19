@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">Two networks joined by a gateway</title>
+  <defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#b4bccb"/><stop offset="1" stop-color="#6b7385"/></linearGradient></defs>
+
+  <path d="M20 142 a24 24 0 0 1 4 -46 a30 30 0 0 1 56 -10 a24 24 0 0 1 36 30 a18 18 0 0 1 -6 26 z" fill="#4299e1" stroke="#3a4257" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M138 142 a24 24 0 0 1 4 -46 a30 30 0 0 1 56 -10 a24 24 0 0 1 36 30 a18 18 0 0 1 -6 26 z" fill="#805ad5" stroke="#3a4257" stroke-width="4" stroke-linejoin="round"/>
+  <line x1="100" y1="128" x2="150" y2="128" stroke="#3a4257" stroke-width="6"/>
+  <rect x="104" y="108" width="34" height="40" rx="6" fill="url(#metal)" stroke="#3a4257" stroke-width="4"/>
+  <path d="M112 122 h18 M112 134 h18" stroke="#3a4257" stroke-width="3"/>
+</svg>

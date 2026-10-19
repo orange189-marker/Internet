@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">The first .com domain</title>
+  <defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#b4bccb"/><stop offset="1" stop-color="#6b7385"/></linearGradient><radialGradient id="globe" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#90cdf4"/><stop offset="1" stop-color="#4299e1"/></radialGradient></defs>
+
+  <circle cx="120" cy="104" r="80" fill="url(#globe)" stroke="#3a4257" stroke-width="4"/>
+  <g fill="none" stroke="#ffffff" stroke-width="3" opacity="0.6">
+    <ellipse cx="120" cy="104" rx="36" ry="80"/><line x1="40" y1="104" x2="200" y2="104"/>
+    <path d="M52 64 h136 M52 144 h136"/>
+  </g>
+  <rect x="40" y="168" width="160" height="56" rx="28" fill="#ed8936" stroke="#3a4257" stroke-width="4"/>
+  <text x="120" y="206" font-family="monospace" font-weight="700" font-size="34" fill="#ffffff" text-anchor="middle">.com</text>
+</svg>

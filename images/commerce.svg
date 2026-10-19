@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">The commercial Internet</title>
+  <defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#b4bccb"/><stop offset="1" stop-color="#6b7385"/></linearGradient></defs>
+
+  <path d="M16 46 h32 l28 112 h118 l22 -84 h-152" fill="none" stroke="#3a4257" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M64 82 h138 l-18 68 h-104 z" fill="url(#metal)"/>
+  <g stroke="#3a4257" stroke-width="3"><rect x="88" y="54" width="40" height="40" rx="4" fill="#ed8936"/><rect x="132" y="66" width="44" height="30" rx="4" fill="#4299e1"/><rect x="104" y="94" width="50" height="40" rx="4" fill="#38b2ac"/></g>
+  <circle cx="92" cy="194" r="16" fill="#7a8398" stroke="#3a4257" stroke-width="5"/>
+  <circle cx="176" cy="194" r="16" fill="#7a8398" stroke="#3a4257" stroke-width="5"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">Navigating the Web</title>
+  <defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#b4bccb"/><stop offset="1" stop-color="#6b7385"/></linearGradient></defs>
+
+  <circle cx="120" cy="120" r="100" fill="url(#metal)" stroke="#3a4257" stroke-width="4"/>
+  <circle cx="120" cy="120" r="80" fill="#1a1f2e"/>
+  <g stroke="#7a8398" stroke-width="4" stroke-linecap="round">
+    <path d="M120 46 v12 M120 182 v12 M46 120 h12 M182 120 h12"/>
+  </g>
+  <polygon points="120,54 136,120 104,120" fill="#e53e3e"/>
+  <polygon points="120,186 136,120 104,120" fill="#e2e8f0"/>
+  <circle cx="120" cy="120" r="10" fill="url(#metal)" stroke="#3a4257" stroke-width="3"/>
+  <text x="120" y="40" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#3a4257" text-anchor="middle" dy="-0">N</text>
+</svg>

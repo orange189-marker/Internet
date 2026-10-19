@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">The first web server</title>
+  <defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#b4bccb"/><stop offset="1" stop-color="#6b7385"/></linearGradient></defs>
+
+  <rect x="22" y="22" width="132" height="110" rx="8" fill="#4a5266" stroke="#7a8398" stroke-width="4"/>
+  <rect x="34" y="34" width="108" height="80" rx="3" fill="#e2e8f0"/>
+  <rect x="42" y="42" width="92" height="14" fill="#4299e1"/>
+  <path d="M42 68 h80 M42 80 h60 M42 92 h72 M42 104 h50" stroke="#7a8398" stroke-width="4" stroke-linecap="round"/>
+  <path d="M78 132 h20 l6 24 h-32 z" fill="#7a8398"/>
+  <path d="M150 104 l64 0 l14 14 v84 l-14 14 h-64 l-14 -14 v-84 z" fill="#3a4257" stroke="#7a8398" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="152" y="118" width="62" height="84" fill="#4a5266"/>
+  <circle cx="183" cy="190" r="4" fill="#48bb78"/>
+  <rect x="28" y="166" width="104" height="22" rx="4" fill="#4a5266" stroke="#7a8398" stroke-width="3"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">Distributed network</title>
+  <defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#b4bccb"/><stop offset="1" stop-color="#6b7385"/></linearGradient></defs>
+  <g stroke="#7a8398" stroke-width="4"><line x1="40" y1="40" x2="120" y2="30"/><line x1="120" y1="30" x2="200" y2="44"/><line x1="40" y1="40" x2="30" y2="120"/><line x1="120" y1="30" x2="110" y2="110"/><line x1="200" y1="44" x2="196" y2="124"/><line x1="30" y1="120" x2="110" y2="110"/><line x1="110" y1="110" x2="196" y2="124"/><line x1="30" y1="120" x2="48" y2="200"/><line x1="110" y1="110" x2="128" y2="206"/><line x1="196" y1="124" x2="206" y2="196"/><line x1="48" y1="200" x2="128" y2="206"/><line x1="128" y1="206" x2="206" y2="196"/><line x1="40" y1="40" x2="110" y2="110"/><line x1="110" y1="110" x2="206" y2="196"/><line x1="200" y1="44" x2="110" y2="110"/><line x1="110" y1="110" x2="48" y2="200"/></g>
+  <path d="M110 110 L196 124" stroke="#e53e3e" stroke-width="5" stroke-dasharray="6 6"/>
+  <g fill="url(#metal)" stroke="#3a4257" stroke-width="3"><circle cx="40" cy="40" r="13"/><circle cx="120" cy="30" r="13"/><circle cx="200" cy="44" r="13"/><circle cx="30" cy="120" r="13"/><circle cx="110" cy="110" r="13"/><circle cx="196" cy="124" r="13"/><circle cx="48" cy="200" r="13"/><circle cx="128" cy="206" r="13"/><circle cx="206" cy="196" r="13"/></g>
+  <circle cx="110" cy="110" r="13" fill="#38b2ac" stroke="#3a4257" stroke-width="3"/>
+</svg>

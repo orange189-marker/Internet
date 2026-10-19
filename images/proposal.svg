@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">The Web proposal</title>
+  <defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#b4bccb"/><stop offset="1" stop-color="#6b7385"/></linearGradient></defs>
+
+  <path d="M30 26 h120 v194 h-120 z" fill="url(#metal)" stroke="#3a4257" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M46 52 h88 M46 72 h88 M46 92 h60" stroke="#7a8398" stroke-width="5" stroke-linecap="round"/>
+  <path d="M46 132 q10 -14 20 0 t20 0 t20 0 t20 0" fill="none" stroke="#e53e3e" stroke-width="4" stroke-linecap="round"/>
+  <path d="M46 156 q10 -14 20 0 t20 0 t20 0" fill="none" stroke="#e53e3e" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="178" cy="98" r="40" fill="#fbd38d" stroke="#3a4257" stroke-width="4"/>
+  <path d="M164 138 h28 v26 h-28 z" fill="#7a8398" stroke="#3a4257" stroke-width="4"/>
+  <path d="M166 150 h24" stroke="#3a4257" stroke-width="3"/>
+  <path d="M168 104 l10 -14 10 14" fill="none" stroke="#ed8936" stroke-width="4" stroke-linejoin="round"/>
+  <g stroke="#ed8936" stroke-width="4" stroke-linecap="round"><path d="M178 42 v-14 M222 98 h14 M210 64 l10 -10"/></g>
+</svg>

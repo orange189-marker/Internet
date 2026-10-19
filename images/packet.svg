@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">Data packets</title>
+  <defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef1f6"/><stop offset="0.5" stop-color="#b4bccb"/><stop offset="1" stop-color="#6b7385"/></linearGradient></defs>
+
+  <rect x="16" y="70" width="96" height="100" rx="8" fill="url(#metal)" stroke="#3a4257" stroke-width="4"/>
+  <path d="M30 96 h68 M30 116 h68 M30 136 h68 M30 156 h44" stroke="#7a8398" stroke-width="5" stroke-linecap="round"/>
+  <path d="M120 120 h20" stroke="#3a4257" stroke-width="5" stroke-linecap="round"/>
+  <g stroke="#3a4257" stroke-width="3">
+    <rect x="152" y="40" width="40" height="40" rx="5" fill="#ed8936"/>
+    <rect x="182" y="100" width="40" height="40" rx="5" fill="#4299e1"/>
+    <rect x="146" y="158" width="40" height="40" rx="5" fill="#38b2ac"/>
+  </g>
+  <g fill="#ffffff" font-family="monospace" font-weight="700" font-size="22" text-anchor="middle">
+    <text x="172" y="68">1</text><text x="202" y="128">2</text><text x="166" y="186">3</text>
+  </g>
+</svg>
