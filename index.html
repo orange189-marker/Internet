@@ -33,10 +33,24 @@
         Over four decades, a handful of ideas&mdash;packet switching, open protocols and
         hypertext&mdash;grew into a network that connects billions of people.
       </p>
-      <div class="terminal" aria-label="Recreation of the first ARPANET message">
-        <div class="terminal-bar"><span></span><span></span><span></span><em>UCLA &rarr; SRI &middot; 29 Oct 1969, 22:30</em></div>
-        <pre id="typed" aria-live="polite"></pre>
-      </div>
+      <figure class="terminal" aria-label="Recreation of the first ARPANET message">
+        <div class="terminal-bar">
+          <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="host">UCLA<small>SDS Sigma 7</small></span>
+          <span class="link" aria-hidden="true"><i class="packet"></i></span>
+          <span class="host host-right">SRI<small>SDS 940</small></span>
+        </div>
+        <div class="screen">
+          <i class="roll" aria-hidden="true"></i>
+          <div id="typed" class="screen-text" aria-live="polite"></div>
+        </div>
+        <figcaption class="terminal-status">
+          <span class="status-light" aria-hidden="true"></span>
+          <span class="status-text">LINK UP &middot; 50 kbit/s</span>
+          <span class="stamp">29 OCT 1969 &middot; 22:30</span>
+          <button class="replay" type="button">&#8635; Replay</button>
+        </figcaption>
+      </figure>
       <div class="hero-actions">
         <a class="cta" href="#timeline">Explore the timeline <span class="cta-arrow" aria-hidden="true">&darr;</span></a>
         <a class="btn-ghost" href="#quiz">Take the quiz</a>

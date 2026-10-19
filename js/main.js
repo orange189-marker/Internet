@@ -20,29 +20,59 @@
     }
   });
 
-  // Typed terminal in the hero
+  // Typed terminal in the hero: each line is a list of [text, class] parts
+  const term = $(".terminal");
   const typed = $("#typed");
-  const lines = [
-    "> LOGIN",
-    "  L ... ok",
-    "  O ... ok",
-    "  G ... *** SYSTEM CRASH ***",
-    "",
-    "> first message delivered: \"LO\""
+  const statusText = $(".status-text");
+  const SCRIPT = [
+    { parts: [["CONNECTING TO SRI VIA IMP 1 ... ", "sys"], ["OK", "ok"]], speed: 14, pause: 500 },
+    { parts: [["> ", "prompt"], ["LOGIN", "cmd"]], speed: 150, pause: 700 },
+    { parts: [["  L ", "cmd"], ["\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7 ", "dots"], ["ACK", "ok"]], speed: 35 },
+    { parts: [["  O ", "cmd"], ["\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7 ", "dots"], ["ACK", "ok"]], speed: 35 },
+    { parts: [["  G ", "cmd"], ["\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7 ", "dots"], ["*** SYSTEM CRASH ***", "crash"]], speed: 35, crash: true, pause: 900 },
+    { parts: [["-- link lost --", "sys"]], speed: 20, pause: 500 },
+    { parts: [["> ", "prompt"], ["SRI received: ", "sys"], ["\"LO\"", "result"]], speed: 45, pause: 400 },
+    { parts: [["  ...as in \"lo and behold\"", "note"]], speed: 25 }
   ];
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduceMotion) {
-    typed.textContent = lines.join("\n");
-  } else {
-    const full = lines.join("\n");
-    let i = 0;
-    const tick = () => {
-      typed.textContent = full.slice(0, ++i);
-      if (i < full.length) setTimeout(tick, full[i - 1] === "\n" ? 380 : 55);
-      else typed.classList.add("done");
-    };
-    setTimeout(tick, 500);
-  }
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const setLink = (up) => {
+    term.classList.toggle("crashed", !up);
+    statusText.textContent = up ? "LINK UP \u00b7 50 kbit/s" : "LINK DOWN \u00b7 HOST CRASHED";
+  };
+  let run = 0;
+  const play = async () => {
+    const id = ++run;
+    typed.innerHTML = "";
+    setLink(true);
+    await wait(400);
+    for (const line of SCRIPT) {
+      const row = document.createElement("div");
+      row.className = "row";
+      typed.appendChild(row);
+      for (const [text, cls] of line.parts) {
+        const span = document.createElement("span");
+        span.className = cls;
+        row.appendChild(span);
+        if (reduceMotion) { span.textContent = text; continue; }
+        for (const ch of text) {
+          if (id !== run) return;
+          span.textContent += ch;
+          await wait(line.speed);
+        }
+      }
+      if (line.crash) {
+        setLink(false);
+        if (!reduceMotion) {
+          term.classList.add("crashing");
+          setTimeout(() => term.classList.remove("crashing"), 500);
+        }
+      }
+      if (!reduceMotion) await wait(line.pause ?? 250);
+    }
+  };
+  $(".replay").addEventListener("click", play);
+  play();
 
   // Timeline
   const list = $("#timeline-list");
