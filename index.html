@@ -12,6 +12,7 @@
 </head>
 <body>
   <header class="site-header">
+    <div class="read-progress" aria-hidden="true"></div>
     <nav class="nav">
       <a class="brand" href="#top">&lt;net/history&gt;</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -26,38 +27,50 @@
 
   <main id="top">
     <section class="hero">
-      <p class="eyebrow">1958 &mdash; 1995</p>
-      <h1>How the Internet<br>Was Born</h1>
-      <p class="lede">
-        It began as a research project to share scarce computers between universities.
-        Over four decades, a handful of ideas&mdash;packet switching, open protocols and
-        hypertext&mdash;grew into a network that connects billions of people.
-      </p>
-      <figure class="terminal" aria-label="Recreation of the first ARPANET message">
-        <div class="terminal-bar">
-          <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="host">UCLA<small>SDS Sigma 7</small></span>
-          <span class="link" aria-hidden="true"><i class="packet"></i></span>
-          <span class="host host-right">SRI<small>SDS 940</small></span>
+      <canvas class="hero-net" aria-hidden="true"></canvas>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>1957 &mdash; 1995</p>
+          <h1>How the <span class="grad">Internet</span><br>Was Born</h1>
+          <p class="lede">
+            It began as a research project to share scarce computers between universities.
+            Over four decades, a handful of ideas&mdash;packet switching, open protocols and
+            hypertext&mdash;grew into a network that connects billions of people.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="#timeline">Explore the timeline <span class="cta-arrow" aria-hidden="true">&darr;</span></a>
+            <a class="btn-ghost" href="#quiz">Take the quiz</a>
+          </div>
+          <dl class="stats">
+            <div><dt data-count="4">4</dt><dd>hosts in 1969</dd></div>
+            <div><dt data-count="1000" data-suffix="+">1,000+</dt><dd>hosts by 1984</dd></div>
+            <div><dt data-count="1000000" data-suffix="+">1M+</dt><dd>hosts by 1992</dd></div>
+          </dl>
         </div>
-        <div class="screen">
-          <i class="roll" aria-hidden="true"></i>
-          <div id="typed" class="screen-text" aria-live="polite"></div>
-        </div>
-        <figcaption class="terminal-status">
-          <span class="status-light" aria-hidden="true"></span>
-          <span class="status-text">LINK UP &middot; 50 kbit/s</span>
-          <span class="stamp">29 OCT 1969 &middot; 22:30</span>
-          <button class="replay" type="button">&#8635; Replay</button>
-        </figcaption>
-      </figure>
-      <div class="hero-actions">
-        <a class="cta" href="#timeline">Explore the timeline <span class="cta-arrow" aria-hidden="true">&darr;</span></a>
-        <a class="btn-ghost" href="#quiz">Take the quiz</a>
+          <figure class="terminal" aria-label="Recreation of the first ARPANET message">
+            <div class="terminal-bar">
+              <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="host">UCLA<small>SDS Sigma 7</small></span>
+              <span class="link" aria-hidden="true"><i class="packet"></i></span>
+              <span class="host host-right">SRI<small>SDS 940</small></span>
+            </div>
+            <div class="screen">
+              <i class="roll" aria-hidden="true"></i>
+              <div id="typed" class="screen-text" aria-live="polite"></div>
+            </div>
+            <figcaption class="terminal-status">
+              <span class="status-light" aria-hidden="true"></span>
+              <span class="status-text">LINK UP &middot; 50 kbit/s</span>
+              <span class="stamp">29 OCT 1969 &middot; 22:30</span>
+              <button class="replay" type="button">&#8635; Replay</button>
+            </figcaption>
+          </figure>
       </div>
     </section>
 
     <section id="timeline" class="section">
+      <p class="kicker"><span>01</span>The story</p>
       <h2>Timeline</h2>
       <p class="section-intro">Filter by era, or click any milestone to read more.</p>
       <div class="filters" role="group" aria-label="Filter timeline by era">
@@ -75,46 +88,91 @@
     </section>
 
     <section id="pioneers" class="section">
+      <p class="kicker"><span>02</span>The people</p>
       <h2>Pioneers</h2>
       <p class="section-intro">No single person invented the Internet. These are some of the people whose work made it possible.</p>
       <div class="cards" id="pioneer-cards"></div>
     </section>
 
     <section id="concepts" class="section">
+      <p class="kicker"><span>03</span>How it works</p>
       <h2>Key Ideas</h2>
+      <p class="section-intro">Four inventions that turned a few linked computers into a global network.</p>
       <div class="concepts">
-        <article class="concept">
+        <article class="concept spot">
+          <span class="concept-num">01</span>
           <h3>Packet switching</h3>
           <p>Instead of reserving a whole line for one call, messages are chopped into small packets that travel independently and are reassembled at the destination. The network stays useful even when parts of it fail.</p>
-          <div class="packet-demo" aria-hidden="true">
+          <div class="diagram packet-demo" aria-hidden="true">
             <span class="node">A</span>
-            <div class="wire"><i></i><i></i><i></i><i></i></div>
+            <div class="routes">
+              <div class="wire"><i></i><i></i><i></i></div>
+              <div class="wire wire-b"><i></i><i></i><i></i></div>
+            </div>
             <span class="node">B</span>
           </div>
         </article>
-        <article class="concept">
+        <article class="concept spot">
+          <span class="concept-num">02</span>
           <h3>TCP/IP</h3>
           <p>IP gives every machine an address and moves packets between networks. TCP sits on top, checking that every packet arrives, in order, and asking for any lost ones again. Together they let any network talk to any other.</p>
+          <div class="diagram stack" aria-hidden="true">
+            <div class="layer" style="--c: var(--web)"><b>Application</b><small>email, web</small></div>
+            <div class="layer" style="--c: var(--protocols)"><b>TCP</b><small>reliable delivery</small></div>
+            <div class="layer" style="--c: var(--arpanet)"><b>IP</b><small>addressing &amp; routing</small></div>
+            <div class="layer" style="--c: var(--foundations)"><b>Link</b><small>wires, radio</small></div>
+            <i class="stack-packet"></i>
+          </div>
         </article>
-        <article class="concept">
+        <article class="concept spot">
+          <span class="concept-num">03</span>
           <h3>Domain Name System</h3>
           <p>People remember names, computers use numbers. DNS, introduced in 1983, translates names like <code>example.com</code> into IP addresses through a distributed, hierarchical directory.</p>
+          <div class="diagram dns" aria-hidden="true">
+            <span class="pill">example.com</span>
+            <span class="dns-arrow"><i></i></span>
+            <span class="pill pill-ip">192.0.2.10</span>
+          </div>
         </article>
-        <article class="concept">
+        <article class="concept spot">
+          <span class="concept-num">04</span>
           <h3>Hypertext &amp; the Web</h3>
           <p>The World Wide Web is an application that runs on the Internet. It combines URLs, the HTTP protocol and HTML pages so that any document can link to any other with a single click.</p>
+          <svg class="diagram web-links" viewBox="0 0 300 90" aria-hidden="true">
+            <path class="link-path" d="M62 45 C 100 5, 120 5, 150 40"/>
+            <path class="link-path" d="M178 50 C 200 85, 220 85, 242 50" style="animation-delay: -.8s"/>
+            <path class="link-path" d="M60 55 C 120 100, 190 100, 240 58" style="animation-delay: -1.6s"/>
+            <g class="doc"><rect x="18" y="22" width="44" height="50" rx="5"/><path d="M26 34 h28 M26 44 h20 M26 54 h24"/></g>
+            <g class="doc"><rect x="134" y="20" width="44" height="50" rx="5"/><path d="M142 32 h28 M142 42 h16 M142 52 h24"/></g>
+            <g class="doc"><rect x="240" y="24" width="44" height="50" rx="5"/><path d="M248 36 h28 M248 46 h22 M248 56 h14"/></g>
+          </svg>
         </article>
       </div>
     </section>
 
     <section id="quiz" class="section">
+      <p class="kicker"><span>04</span>Quiz</p>
       <h2>Test Yourself</h2>
+      <p class="section-intro">Five questions. See how much of the story stuck.</p>
       <div class="quiz" id="quiz-box"></div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Built as an educational overview. Dates follow widely cited histories from the Internet Society, CERN and the Computer History Museum.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top">&lt;net/history&gt;</a>
+        <p>An interactive look at how the Internet was created, from Sputnik to the commercial Web.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#timeline">Timeline</a>
+        <a href="#pioneers">Pioneers</a>
+        <a href="#concepts">Key Ideas</a>
+        <a href="#quiz">Quiz</a>
+      </nav>
+      <a class="btn-ghost to-top" href="#top">Back to top &uarr;</a>
+    </div>
+    <p class="footer-note">Built as an educational overview. Dates follow widely cited histories from the Internet Society, CERN and the Computer History Museum.</p>
   </footer>
 
   <dialog id="detail" class="detail">
